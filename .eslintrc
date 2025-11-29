@@ -15,12 +15,24 @@
     "jest": true,
     "es6": true
   },
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
     "react/function-component-definition": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
     "react/prop-types": "off",
     "react/button-has-type": "off",
     "import/no-extraneous-dependencies": [
@@ -36,8 +48,12 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "prettier/prettier": ["error"],
+    "prettier/prettier": [
+      "error"
+    ],
     "@typescript-eslint/no-use-before-define": "off",
-    "import/order": "off"
+    "import/order": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
   }
 }

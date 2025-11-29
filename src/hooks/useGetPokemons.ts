@@ -8,9 +8,7 @@ export interface Pokemon {
   sprite?: string;
 }
 
-export interface PokemonDetail extends Pokemon {
-  // Details
-}
+export interface PokemonDetail extends Pokemon {}
 
 export const GET_POKEMONS = gql`
   query GetPokemons($search: String) {
@@ -44,7 +42,7 @@ export const GET_POKEMONS = gql`
 `;
 
 export const GET_POKEMON_DETAILS = gql`
-  query GetPokemonDetails($id: String!) {
+  query GetPokemonDetails($id: Int!) {
     pokemon(where: { id: { _eq: $id } }) {
       id
       pokemonspecy {
@@ -75,15 +73,14 @@ export const GET_POKEMON_DETAILS = gql`
   }
 `;
 
-// Search should be done client-side for the mid-level assessment. Uncomment for the senior assessment.
-export const useGetPokemons = (/* search?: string */): {
+export const useGetPokemons = (): {
   data: Pokemon[];
   loading: boolean;
   error: useQuery.Result['error'];
 } => {
   const { data, loading, error } = useQuery<{ pokemon: any[] }>(GET_POKEMONS, {
     variables: {
-      search: '', // `.*${search}.*`,
+      search: '',
     },
   });
 
@@ -93,6 +90,8 @@ export const useGetPokemons = (/* search?: string */): {
         (p): Pokemon => ({
           id: p.id,
           name: p.pokemonspecy.pokemonspeciesnames?.[0]?.name,
+          types: p.pokemontypes?.map((t: any) => t.type.typenames[0].name),
+          sprite: p.pokemonsprites?.[0]?.sprites ?? undefined,
         }),
       ) ?? [],
     loading,

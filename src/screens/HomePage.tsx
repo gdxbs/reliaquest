@@ -24,7 +24,7 @@ export const HomePage = () => {
 
 const useStyles = tss.create(({ theme }) => ({
   root: {
-    color: theme.color.text.primary,
+    color: theme.colors.text.primary,
     '& p': {
       color: 'rgba(255,255,255,.68)',
     },

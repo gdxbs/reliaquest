@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { PokemonListPage } from './screens/PokemonListPage';
 import { LayoutWrapper } from './LayoutWrapper';
@@ -20,6 +19,7 @@ const App = () => (
         <Route path="/" element={<LayoutWrapper />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/list" element={<PokemonListPage />} />
+          <Route path="/pokemon/:id" element={<PokemonListPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

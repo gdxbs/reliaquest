@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import { HomeFilled, UnorderedListOutlined } from '@ant-design/icons';
@@ -40,8 +40,8 @@ export const LayoutWrapper = () => {
 const useStyles = tss.create(({ theme }) => ({
   rootLayout: {
     height: '100vh',
-    backgroundColor: theme.color.surface,
-    color: theme.color.text.primary,
+    backgroundColor: theme.colors.background.darker,
+    color: theme.colors.text.primary,
     '& main': {
       padding: 16,
       overflowY: 'auto',
